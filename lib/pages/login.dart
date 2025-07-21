@@ -15,7 +15,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _email = TextEditingController();
+  final _nis = TextEditingController();
   final _password = TextEditingController();
 
   bool _showPassword = false;
@@ -30,11 +30,17 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Image.asset('assets/main.png'),
+              Image.asset('assets/logo.png'),
               const SizedBox(height: 16),
               const Text("SMKS H. A WASIR ALI", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
               const SizedBox(height: 28),
-              Input(controller: _email, label: "Email", icon: const Icon(Icons.mail), hintText: "Masukkan email"),
+              Input(
+                controller: _nis,
+                label: "Nomor Induk Siswa",
+                icon: const Icon(Icons.person),
+                hintText: "Masukkan nis",
+                keyboardType: TextInputType.number,
+              ),
               Input(
                 controller: _password,
                 label: "Password",
@@ -86,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 child: FilledButton(
                   onPressed: () {
-                    context.read<AuthCubit>().login(_email.text, _password.text);
+                    context.read<AuthCubit>().login(_nis.text, _password.text);
                   },
                   child: const Text("L O G I N"),
                 ),

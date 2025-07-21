@@ -8,6 +8,6 @@ class Kelas {
   const Kelas({required this.uuid, required this.nama, required this.wali});
 
   factory Kelas.fromJson(Map<String, dynamic> json) {
-    return Kelas(uuid: json['uuid'], nama: json['nama'], wali: Guru.fromJson(json['wali']));
+    return Kelas(uuid: json['uuid'], nama: json['nama'], wali: Guru.fromJson(json['wali_kelas']));
   }
 }

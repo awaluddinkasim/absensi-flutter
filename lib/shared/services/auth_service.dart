@@ -6,7 +6,7 @@ class AuthService {
   Future<Auth> getUser(String token) async {
     final response = await Request.get('/user', headers: {'Authorization': 'Bearer $token'});
 
-    User user = User.fromJson(response['user']);
+    User user = User.fromJson(response['data']['user']);
 
     return Auth(token: token, user: user);
   }
@@ -14,14 +14,15 @@ class AuthService {
   Future<String> updatePassword(String token, String password) async {
     final response = await Request.put('/password', data: {'password': password}, headers: {'Authorization': 'Bearer $token'});
 
-    return response['message'];
+    return response['data']['message'];
   }
 
-  Future<Auth> login(String email, String password) async {
-    final response = await Request.post('/login', data: {'email': email, 'password': password});
+  Future<Auth> login(String nis, String password) async {
+    final response = await Request.post('/login', data: {'nis': nis, 'password': password});
 
-    String token = response['token'];
-    User user = User.fromJson(response['user']);
+    print(response['data']['user']);
+    String token = response['data']['token'];
+    User user = User.fromJson(response['data']['user']);
 
     return Auth(token: token, user: user);
   }

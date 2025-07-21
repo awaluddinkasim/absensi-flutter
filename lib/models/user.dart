@@ -10,12 +10,6 @@ class User {
   User({required this.nis, required this.nama, required this.kelas, required this.alamat, required this.nomorTelepon});
 
   factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      nis: json['nis'],
-      nama: json['nama'],
-      kelas: Kelas.fromJson(json['kelas']),
-      alamat: json['alamat'],
-      nomorTelepon: json['nomor_telepon'],
-    );
+    return User(nis: json['nis'], nama: json['nama'], kelas: Kelas.fromJson(json['kelas']), alamat: json['alamat'], nomorTelepon: json['no_telepon']);
   }
 }

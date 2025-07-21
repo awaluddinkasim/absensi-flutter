@@ -32,11 +32,11 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  Future<void> login(String email, String password) async {
+  Future<void> login(String nis, String password) async {
     emit(AuthLoading());
 
     try {
-      final auth = await _authService.login(email, password);
+      final auth = await _authService.login(nis, password);
 
       await Constants.storage.write(key: 'token', value: auth.token);
 
