@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               Image.asset('assets/main.png'),
               const SizedBox(height: 16),
-              const Text("Mommy Be", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+              const Text("SMKS H. A WASIR ALI", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
               const SizedBox(height: 28),
               Input(controller: _email, label: "Email", icon: const Icon(Icons.mail), hintText: "Masukkan email"),
               Input(
